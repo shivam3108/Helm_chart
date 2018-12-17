@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: zipkeen
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+spec:
+  replicas: {{ .Values.zipkeen.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: zipkeen
+    spec:
+      containers:
+      - name: zipkeen
+        image: "{{ .Values.zipkeen.image.repository }}:{{ .Values.zipkeen.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.zipkeen.service.Port }}

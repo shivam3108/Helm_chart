@@ -1,0 +1,17 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: catalog
+spec:
+  replicas: {{ .Values.catalog.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: catalog
+    spec:
+      containers:
+      - name: catalog-container
+        image: "{{ .Values.catalog.image.repository }}:{{ .Values.catalog.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.catalog.service.Port }}

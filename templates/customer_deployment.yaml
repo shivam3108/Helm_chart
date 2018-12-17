@@ -1,0 +1,17 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: customer
+spec:
+  replicas: {{ .Values.customer.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: customer
+    spec:
+      containers:
+      - name: customer-container
+        image: "{{ .Values.customer.image.repository }}:{{ .Values.customer.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.customer.service.Port }}

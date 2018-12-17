@@ -1,9 +1,54 @@
-replicaCount: 2
-image:
-  repository: openzipkin/zipkin
-  tag: latest
-service:
-  name: testapi
-  type: LoadBalancer
-  Port: 9411
- 
+zipkeen:
+    replicaCount: 2
+    image:
+      repository: openzipkin/zipkin
+      tag: latest
+    service:
+      name: zipkeen
+      type: LoadBalancer
+      Port: 9411
+apache:
+    replicaCount: 2
+    image:
+      repository: shivam1994/microservice-kubernetes-demo-apache
+      tag: latest
+    service:
+      name: apache
+      type: LoadBalancer
+      Port: 80
+catalog:
+    replicaCount: 2
+    image:
+      repository: shivam1994/microservice-kubernetes-demo-catalog
+      tag: T1
+    service:
+      name: catalog
+      type: LoadBalancer
+      Port: 8080	  
+customer:
+    replicaCount: 2
+    image:
+      repository: shivam1994/microservice-kubernetes-demo-customer
+      tag: T1
+    service:
+      name: customer
+      type: LoadBalancer
+      Port: 8080
+dashboard:
+    replicaCount: 2
+    image:
+      repository: shivam1994/microservice-kubernetes-demo-hystrix-dashboard
+      tag: T1
+    service:
+      name: dashboard
+      type: LoadBalancer
+      Port: 8080	
+demo:
+    replicaCount: 2
+    image:
+      repository: shivam1994/microservice-kubernetes-demo-order
+      tag: T1
+    service:
+      name: demo
+      type: LoadBalancer
+      Port: 8080		  
