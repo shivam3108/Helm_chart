@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "akschart.fullname" . }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: {{ .Values.service.Port }}
+  selector:
+    app: {{ template "akschart.fullname" . }}
+

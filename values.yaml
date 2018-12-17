@@ -1,0 +1,9 @@
+replicaCount: 2
+image:
+  repository: openzipkin/zipkin
+  tag: latest
+service:
+  name: testapi
+  type: LoadBalancer
+  Port: 9411
+ 
